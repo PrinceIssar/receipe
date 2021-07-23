@@ -11,7 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import {FacebookShareButton} from "react-share";
+import {FacebookIcon} from "react-share";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,8 +53,19 @@ const Recipe = ({title, calories , image, ingredients}) => {
                 <CardMedia className={classes.media} image={image} title={title}/>
                 <CardActions disableSpacing>
 
-                    <IconButton aria-label="share">
+
+                    <IconButton aria-label="share" width='30px'>
+                        <FacebookShareButton url='https://www.facebook.com/'
+                        quote={"Hey"}
+                        hashtag="#React">
+                            <FacebookIcon logoFillColor='white' round={true} width='30px'>
+
+                            </FacebookIcon>
+                        </FacebookShareButton>
                         <ShareIcon />
+
+
+
                     </IconButton>
                     <div>Ingredients</div>
                     <IconButton

@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import SearchIcon from '@material-ui/icons/Search';
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         padding: '2px 4px',
@@ -36,7 +37,7 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState(""); // not to have a default food
   // don't want to render everytime someone writes a word but once he click search button
- const [query, setQuery]= useState('chicken');
+ const [query, setQuery]= useState('');
   useEffect(() => {  //
     getRecipe();
   }, [query]); //useEffect:   [] will not run the effect array we gave is dependency
