@@ -55,6 +55,7 @@ function App() {
   const updateQuery = (e) =>{
     e.preventDefault(); // this will stop the form to refresh
     setQuery(search);// setQuery = search
+      setSearch(''); // once search is done we want to delete what was searched.
   }
 
   return (
@@ -74,21 +75,24 @@ function App() {
               </IconButton>
 
           </Paper>
-    {/*<form onSubmit={updateQuery}>*/}
-    {/*  <input type="text" value={search} onChange={updateSearch}/>*/}
-    {/*  <button type="submit">Search</button>*/}
-    {/*</form>*/}
-    {recipes.map((recipe) => (
-      // will pass all props here title ,cal,img ,ingre in Recipe.js
-      <Recipe
-          key={recipe.recipe.label}
-          title={recipe.recipe.label}
-          calories={recipe.recipe.calories}
-          image={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
-      />
-    ))}
-  </div>
+
+          <div>
+              <Grid container>
+                  {recipes.map((recipe) => (
+                      // will pass all props here title ,cal,img ,ingre in Recipe.js
+                      <Grid item xs={3}>
+                          <Recipe
+                              key={recipe.recipe.label}
+                              title={recipe.recipe.label}
+                              calories={recipe.recipe.calories}
+                              image={recipe.recipe.image}
+                              ingredients={recipe.recipe.ingredients}
+                          />
+                      </Grid>
+                  ))}
+              </Grid>
+          </div>
+      </div>
   );
 }
 
